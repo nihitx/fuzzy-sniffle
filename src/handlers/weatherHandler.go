@@ -19,10 +19,10 @@ import (
 // - Area forecast discussion
 func GetWeather() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		if resp, err := services.GetWeather(c.Param("cityState")); err != nil {
+		if _, err := services.GetWeather(c.Param("cityState")); err != nil {
 			c.IndentedJSON(http.StatusBadRequest, err)
 		} else {
-			c.IndentedJSON(http.StatusOK, resp)
+			c.IndentedJSON(http.StatusOK, "Masnad Says hi")
 		}
 	}
 }
